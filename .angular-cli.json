@@ -6,6 +6,7 @@
   "apps": [
     {
       "root": "src",
+      "name": "client",
       "outDir": "dist",
       "assets": [
         "assets",
@@ -30,6 +31,7 @@
     },
     {
       "root": "src",
+      "name": "server",
       "outDir": "dist-server",
       "assets": [
         "assets",

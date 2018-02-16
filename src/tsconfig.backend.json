@@ -1,0 +1,19 @@
+{
+  "extends": "./tsconfig.server.json",
+  "compilerOptions": {
+    "outDir": "../dist-backend",
+    "types": [
+      "node"
+    ]
+  },
+  "include": [
+    "./backend/**/*"
+  ],
+  "files": [
+    "./backend/server.ts"
+  ],
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts"
+  ]
+}

@@ -5,6 +5,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "build:s": "ng build --app server --aot",
+    "build:s:ts": "tsc -p ./src/tsconfig.backend.json",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
