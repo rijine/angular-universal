@@ -7,11 +7,20 @@ const {
 //import { AppServerModuleNgFactory, LAZY_MODULE_MAP } from '../dist-server/main.bundle';
 import { renderModuleFactory } from '@angular/platform-server';
 import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader'
+import { ngExpressEngine} from '@nguniversal/express-engine';
+
 import * as path from 'path';
 import * as fs from 'fs';
 import * as express from 'express';
 
+
 const app = express();
+app.engine('html', ngExpressEngine({
+  bootstrap: AppServerModuleNgFactory,
+  providers: [
+    provideModuleMap(LAZY_MODULE_MAP)
+  ]
+}));
 
 const distPath = path.resolve(__dirname, '../dist');
 const indexFilePath = path.resolve(__dirname, '../dist/index.html');
@@ -23,7 +32,23 @@ app.use(
   })
 );
 
-app.get('/', async (req, res) => {
+const routes = [
+  '/',
+  '/products'
+];
+
+routes.forEach(
+  route => {
+    app.get(route, async (req, res) => {
+      res.render(indexFilePath, {
+        req: req,
+        res: res
+      });
+    });
+  }
+)
+
+/* app.get('/', async (req, res) => {
   const html = await renderModuleFactory(AppServerModuleNgFactory, {
     url: '/',
     document: indexHtml,
@@ -32,9 +57,9 @@ app.get('/', async (req, res) => {
     ]
   });
   res.send(html);
-});
+}); */
 
-app.get('/products', async (req, res) => {
+/* app.get('/products', async (req, res) => {
   const html = await renderModuleFactory(AppServerModuleNgFactory, {
     url: '/products',
     document: indexHtml,
@@ -43,7 +68,7 @@ app.get('/products', async (req, res) => {
     ]
   });
   res.send(html);
-});
+}); */
 
 app.listen(4000, () => {
   console.log('http://localhost:4000/');
