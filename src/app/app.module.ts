@@ -16,7 +16,9 @@ import { AppComponent } from './app.component';
         path: 'products',
         loadChildren: './products/products.module#ProductsModule'
       }
-    ])
+    ], {
+      initialNavigation: 'enabled'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
