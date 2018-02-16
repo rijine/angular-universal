@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 
@@ -10,7 +10,13 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' })
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    RouterModule.forRoot([
+      {
+        path: 'products',
+        loadChildren: './products/products.module#ProductsModule'
+      }
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
