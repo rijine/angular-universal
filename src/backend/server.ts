@@ -48,28 +48,6 @@ routes.forEach(
   }
 )
 
-/* app.get('/', async (req, res) => {
-  const html = await renderModuleFactory(AppServerModuleNgFactory, {
-    url: '/',
-    document: indexHtml,
-    extraProviders: [
-      provideModuleMap(LAZY_MODULE_MAP)
-    ]
-  });
-  res.send(html);
-}); */
-
-/* app.get('/products', async (req, res) => {
-  const html = await renderModuleFactory(AppServerModuleNgFactory, {
-    url: '/products',
-    document: indexHtml,
-    extraProviders: [
-      provideModuleMap(LAZY_MODULE_MAP)
-    ]
-  });
-  res.send(html);
-}); */
-
 app.listen(4000, () => {
   console.log('http://localhost:4000/');
 });
