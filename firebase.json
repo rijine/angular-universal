@@ -4,13 +4,13 @@
     "ignore": [
       "firebase.json",
       "**/.*",
-      "**/node_modules"
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "function": "ssrapp"
+      }
     ]
-  },
-  "rewrites": [
-    {
-      "source": "**",
-      "function": "ssrapp"
-    }
-  ]
+  }
 }

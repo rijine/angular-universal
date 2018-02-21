@@ -2,10 +2,10 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "es2015",
-    "rootDir": ".",
-    "outDir": "../dist-functions"
+    "baseUrl": "./",
+    "outDir": "../functions"
   },
   "files": [
-    "index.ts"
+    "./functions/index.ts"
   ]
 }

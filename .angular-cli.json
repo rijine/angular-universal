@@ -32,7 +32,7 @@
     {
       "root": "src",
       "name": "server",
-      "outDir": "dist-server",
+      "outDir": "./functions/dist-server",
       "assets": [
         "assets",
         "favicon.ico"
